@@ -68,7 +68,6 @@ namespace ProLab_21.Manager
                 sahipNode = sahipNode.ileri;
             }
 
-            bool komsuMu = false;
             for(int i = 0; i<sahipNode.komsuSayisi;i++)
             {
                 if (sahipNode.komsular[i].sehirAdi == komsuSehir)

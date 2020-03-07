@@ -17,6 +17,7 @@ namespace ProLab_21
         SehirManager sehirManager = new SehirManager();
         DosyaManager dosyaManager = new DosyaManager();
         List<ISehir> sehirList = new List<ISehir>();
+        KomsulukMatrisiManager KomsulukMatrisiManager = new KomsulukMatrisiManager();
         
         public Form1()
         {
@@ -69,6 +70,31 @@ namespace ProLab_21
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Text += "X" + "|\t";
+            for (int k = 0; k< 81;k++)
+            {
+                int a = (k + 1) % 10;
+                richTextBox1.Text += a  + "  ";
+                
+            }
+            richTextBox1.Text += "\n";
+            int[,] kMatris = new int[81, 81];
+            kMatris = KomsulukMatrisiManager.KomsulukMatrisi(sehirManager);
+            for(int i = 0; i<81;i++)
+            {
+                richTextBox1.Text += i+1 + "|\t";
+                for (int k = 0; k< 81;k++)
+                {
+                    richTextBox1.Text += kMatris[i, k] + "  ";
+                }
+                richTextBox1.Text += "\n";
+
+
+            }
         }
     }
 }
