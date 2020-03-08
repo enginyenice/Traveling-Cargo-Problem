@@ -18,7 +18,7 @@ namespace ProLab_21
         DosyaManager dosyaManager = new DosyaManager();
         List<ISehir> sehirList = new List<ISehir>();
         KomsulukMatrisiManager KomsulukMatrisiManager = new KomsulukMatrisiManager();
-        
+        public int[,] kMatris = new int[81, 81];
         public Form1()
         {
             InitializeComponent();
@@ -37,6 +37,7 @@ namespace ProLab_21
         {
             listBox1.Items.Clear();
 
+            
             for(int i = 0;i< sehirList.Count();i++)
             {
                 listBox1.Items.Add("["+sehirList[i].plaka+"] "+sehirList[i].sehirAdi.ToUpper() + " Komsu Sayisi:" + sehirList[i].komsuSayisi);
@@ -46,8 +47,10 @@ namespace ProLab_21
                 }
             }
             
+            
+            
         }
-
+       
         private void button1_Click(object sender, EventArgs e)
         {
             listBox2.Items.Clear();
@@ -77,24 +80,16 @@ namespace ProLab_21
 
         private void button3_Click(object sender, EventArgs e)
         {
-            richTextBox1.Text += "X" + "|\t";
-            for (int k = 0; k< 81;k++)
-            {
-                int a = (k + 1) % 10;
-                richTextBox1.Text += a  + "  ";
-                
-            }
-            richTextBox1.Text += "\n";
-            int[,] kMatris = new int[81, 81];
+            
             kMatris = KomsulukMatrisiManager.KomsulukMatrisi(sehirManager);
-            for(int i = 0; i<81;i++)
+            for (int i = 0; i < 81; i++)
             {
-                richTextBox1.Text += i+1 + "|\t";
-                for (int k = 0; k< 81;k++)
+                richTextBox1.Text += "{";
+                for (int k = 0; k < 81; k++)
                 {
-                    richTextBox1.Text += kMatris[i, k] + "  ";
+                    richTextBox1.Text += kMatris[i, k] + ",";
                 }
-                richTextBox1.Text += "\n";
+                richTextBox1.Text += "},\n";
 
 
             }
