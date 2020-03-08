@@ -50,7 +50,9 @@ namespace ProLab_21
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(checkedListBox1.CheckedItems.Count > 9)
+            listBox2.Items.Clear();
+            listBox2.Items.Add("Kocaeli");
+            if (checkedListBox1.CheckedItems.Count > 9)
             {
                 MessageBox.Show("Maksimum il limitini geçtiniz.\nSeçilen il sayısı: " + checkedListBox1.CheckedItems.Count, "Maksimum Sınır Aşıldı", MessageBoxButtons.OK,MessageBoxIcon.Error);
             } else
@@ -58,13 +60,14 @@ namespace ProLab_21
                 
                 for (int i = 0; i < checkedListBox1.CheckedItems.Count;i++)
                 {
-                    MessageBox.Show(sehirManager.GetSehir(checkedListBox1.CheckedItems[i].ToString()).plaka + " " + sehirManager.GetSehir(checkedListBox1.CheckedItems[i].ToString()).sehirAdi);
+                    listBox2.Items.Add(checkedListBox1.CheckedItems[i].ToString());
+                    //MessageBox.Show(sehirManager.GetSehir(checkedListBox1.CheckedItems[i].ToString()).plaka + " " + sehirManager.GetSehir(checkedListBox1.CheckedItems[i].ToString()).sehirAdi);
                     
                 }
 
             }
 
-               
+            listBox2.Items.Add("Kocaeli");
         }
 
         private void Form1_Load(object sender, EventArgs e)
