@@ -9,6 +9,8 @@ namespace ProLab_21.Entity
     class ISehir
     {
         public int plaka;
+        public int kordinatX;
+        public int kordinatY;
         public string sehirAdi;
         public int komsuSayisi;
         public ISehir[] komsular = new ISehir[100];

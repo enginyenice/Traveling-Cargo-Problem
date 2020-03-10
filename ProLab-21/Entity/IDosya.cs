@@ -9,5 +9,6 @@ namespace ProLab_21.Entity
     class IDosya
     {
         public string DosyaYolu = "sehir.txt";
+        public string KordinatDosyaYolu = "kordinat.txt";
     }
 }

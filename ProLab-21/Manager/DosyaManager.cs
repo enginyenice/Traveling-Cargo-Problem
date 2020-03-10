@@ -55,5 +55,23 @@ namespace ProLab_21.Manager
             sw.Close();
             fs.Close();
         }
+        public void kordinatEkle(SehirManager sehirManager)
+        {
+            string dosya_yolu = @Dosya.KordinatDosyaYolu;
+            FileStream fs = new FileStream(dosya_yolu, FileMode.Open, FileAccess.Read);
+            StreamReader sw = new StreamReader(fs);
+            string yazi = sw.ReadLine();
+            char ayrac = ',';
+            while (yazi != null)
+            {
+                string[] satir = yazi.Split(ayrac);
+                sehirManager.kordinatEkle(Int32.Parse(satir[0]), Int32.Parse(satir[1]), Int32.Parse(satir[2]));
+                yazi = sw.ReadLine();
+                
+
+            }
+            sw.Close();
+            fs.Close();
+        }
     }
 }

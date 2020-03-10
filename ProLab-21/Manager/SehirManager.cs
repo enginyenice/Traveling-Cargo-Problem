@@ -106,6 +106,20 @@ namespace ProLab_21.Manager
 
             return sehirBilgileri;
         }
+        public void kordinatEkle(int plaka,int x,int y)
+        {
+            ISehir sehirBilgileri = ilk;
+            while(sehirBilgileri != null)
+            {
+                if(sehirBilgileri.plaka == plaka)
+                {
+                    break;
+                }
+                sehirBilgileri = sehirBilgileri.ileri;
+            }
+            sehirBilgileri.kordinatX = x;
+            sehirBilgileri.kordinatY = y;
+        }
 
     }
 }
