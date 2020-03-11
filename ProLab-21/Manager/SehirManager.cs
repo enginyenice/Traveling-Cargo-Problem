@@ -106,6 +106,21 @@ namespace ProLab_21.Manager
 
             return sehirBilgileri;
         }
+
+        public ISehir GetSehir(int plaka)
+        {
+            ISehir sehirBilgileri = ilk;
+            while (sehirBilgileri != null)
+            {
+                if (sehirBilgileri.plaka == plaka)
+                    break;
+                sehirBilgileri = sehirBilgileri.ileri;
+            }
+
+
+
+            return sehirBilgileri;
+        }
         public void kordinatEkle(int plaka,int x,int y)
         {
             ISehir sehirBilgileri = ilk;
@@ -117,8 +132,8 @@ namespace ProLab_21.Manager
                 }
                 sehirBilgileri = sehirBilgileri.ileri;
             }
-            sehirBilgileri.kordinatX = x;
-            sehirBilgileri.kordinatY = y;
+            sehirBilgileri.kordinatX = x * 2 -50;
+            sehirBilgileri.kordinatY = y * 2 -70;
         }
 
     }

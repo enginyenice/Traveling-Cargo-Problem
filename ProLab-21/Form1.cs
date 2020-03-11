@@ -46,17 +46,19 @@ namespace ProLab_21
             Label[] lDizi = new Label[81];
             ISehir haritaIter = sehirManager.ilk;
             int k = 0;
+            Image image1 = Image.FromFile(dosyaManager.Dosya.konumDosyaYolu);
             while (haritaIter != null)
             {
                 lDizi[k] = new Label();
-                lDizi[k].Text = haritaIter.sehirAdi;
-                lDizi[k].Width = 60;
-                lDizi[k].Height = 15;
+                //lDizi[k].Text = haritaIter.sehirAdi;
+                lDizi[k].Text = "";
+                lDizi[k].Width = 16;
+                lDizi[k].Height = 32;
+                lDizi[k].Image = image1;
                 lDizi[k].BackColor = Color.Transparent;
-                lDizi[k].ForeColor = Color.Black;
                 lDizi[k].TextAlign = ContentAlignment.MiddleCenter;
-                lDizi[k].Location = new Point(((int)haritaIter.kordinatX * 2 - (haritaIter.kordinatX * 5) / 100)-80, ((int)haritaIter.kordinatY * 2 + (haritaIter.kordinatY * 40) / 100)-100);
-                tabPage4.Controls.Add(lDizi[k]);
+                lDizi[k].Location = new Point((int)haritaIter.kordinatX-10, (int)haritaIter.kordinatY-30);
+                this.Controls.Add(lDizi[k]);
                 k++;
                 haritaIter = haritaIter.ileri;
             }
@@ -83,6 +85,9 @@ namespace ProLab_21
        
         private void button1_Click(object sender, EventArgs e)
         {
+            ISehir edirne = sehirManager.GetSehir("Edirne");
+            ISehir ankara = sehirManager.GetSehir("Ankara");
+            yolBulucuManager.yolBul(edirne,ankara);
             listBox2.Items.Clear();
             arananListesi.Clear();
             listBox2.Items.Add("Kocaeli");
@@ -129,6 +134,66 @@ namespace ProLab_21
         private void listBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            
+            GFG t = new GFG();
+            t.dijkstra(kMatris, 40);
+            for(int i = 0; i< t.kenarlar.Count;i++)
+            {
+                listBox4.Items.Add(sehirManager.GetSehir(t.kenarlar[i] + 1).sehirAdi);
+            }
+            MessageBox.Show(t.arananSehirMesafeleri[0].ToString() + "KM");
+            /*
+             * 
+            int[] dj = t.dijkstra(kMatris, 25);
+            for(int i = 0; i < dj.Length;i++)
+            {
+
+                listBox4.Items.Add(sehirManager.GetSehir(i+1).sehirAdi + " | " + dj[i]);
+            }
+            string Message = "";
+            for(int i = 0; i < t.komsular.Count;i++)
+            {
+                Message += i + "-) "+sehirManager.GetSehir(t.komsular[i] + 1).sehirAdi + "\n";
+                
+            }
+            richTextBox2.Text = Message;
+            */
+        }
+
+        private void Form1_Paint(object sender, PaintEventArgs e)
+        {
+           
+            Pen blackPen = new Pen(Color.Red, 4);
+            // Draw line using integer coordinates
+            ISehir iter1 = sehirManager.ilk;
+
+            while(iter1 != null)
+            {
+                for(int i = 0; i< iter1.komsuSayisi;i++)
+                {
+                    int X1 = iter1.kordinatX, Y1 = iter1.kordinatY, X2 = iter1.komsular[i].kordinatX, Y2 = iter1.komsular[i].kordinatY;
+                    e.Graphics.DrawLine(blackPen, X1, Y1, X2, Y2);
+                }
+
+                iter1 = iter1.ileri;
+            }
+            
+            
+            
+
+            blackPen.Dispose();
+        }
+
+        private void Form1_DoubleClick(object sender, EventArgs e)
+        {
+            if (tabControl1.Visible == true)
+                tabControl1.Visible = false;
+            else
+                tabControl1.Visible = true;
         }
     }
 }

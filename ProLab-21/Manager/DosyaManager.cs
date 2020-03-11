@@ -10,7 +10,7 @@ namespace ProLab_21.Manager
 {
     class DosyaManager
     {
-        IDosya Dosya = new IDosya();
+        public IDosya Dosya = new IDosya();
         //SehirManager sehirManager = new SehirManager();
         public void sehirListesiAl(SehirManager sehirManager)
         {

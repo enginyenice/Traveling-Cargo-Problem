@@ -10,5 +10,6 @@ namespace ProLab_21.Entity
     {
         public string DosyaYolu = "sehir.txt";
         public string KordinatDosyaYolu = "kordinat.txt";
+        public string konumDosyaYolu = "xxkonum.png";
     }
 }

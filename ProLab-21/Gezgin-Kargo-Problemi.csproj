@@ -59,6 +59,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Manager\DosyaManager.cs" />
+    <Compile Include="Manager\GFG.cs" />
     <Compile Include="Manager\KomsulukMatrisiManager.cs" />
     <Compile Include="Manager\SehirManager.cs" />
     <Compile Include="Manager\YolBulucuManager.cs" />
