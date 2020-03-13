@@ -11,6 +11,16 @@ public class GFG
     public int toplamMinMesafe = 0;
     public List<Int32> tamYol = new List<int>();
     public bool kont= true;
+    public GFG()
+    {
+        kenarlar.Clear();
+        arananSehirMesafeleri.Clear();
+        enKisaMesafe = 0;
+        toplamMinMesafe = 0;
+        tamYol.Clear();
+        kont = true;
+
+    }
 
     public void topluDijikstra(int[,] komsulukMatrisi, int baslangicKenari, List<Int32> bitisKenarlari)
     {

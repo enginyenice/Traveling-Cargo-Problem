@@ -16,7 +16,6 @@ namespace ProLab_21
     {
         SehirManager sehirManager = new SehirManager();
         DosyaManager dosyaManager = new DosyaManager();
-        YolBulucuManager yolBulucuManager = new YolBulucuManager();
         List<ISehir> sehirList = new List<ISehir>();
         List<Int32> arananListesiIndis = new List<int>();
 
@@ -138,7 +137,7 @@ namespace ProLab_21
         {
             
             GFG t = new GFG();
-            //t.dijkstra(kMatris, 40,25);
+            listBox4.Items.Clear();
             t.topluDijikstra(kMatris, 40, arananListesiIndis);
             listBox4.Items.Add(sehirManager.GetSehir(40 + 1).sehirAdi);
             for (int i = 0; i< t.tamYol.Count;i++)
@@ -147,9 +146,7 @@ namespace ProLab_21
                 
             }
             MessageBox.Show(t.toplamMinMesafe.ToString() + "KM");
-            
         }
-
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
            

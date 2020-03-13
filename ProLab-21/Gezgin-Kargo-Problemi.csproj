@@ -62,7 +62,6 @@
     <Compile Include="Manager\GFG.cs" />
     <Compile Include="Manager\KomsulukMatrisiManager.cs" />
     <Compile Include="Manager\SehirManager.cs" />
-    <Compile Include="Manager\YolBulucuManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
