@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,8 +13,10 @@ using System.Windows.Forms;
 
 namespace ProLab_21
 {
+    
     public partial class Form1 : Form
     {
+        Bitmap DrawArea;
         SehirManager sehirManager = new SehirManager();
         DosyaManager dosyaManager = new DosyaManager();
         List<ISehir> sehirList = new List<ISehir>();
@@ -24,6 +27,8 @@ namespace ProLab_21
         public Form1()
         {
             InitializeComponent();
+            DrawArea = new Bitmap(pictureBox1.Size.Width, pictureBox1.Size.Height);
+            pictureBox1.Image = DrawArea;
             dosyaManager.sehirListesiAl(sehirManager);
             dosyaManager.kordinatEkle(sehirManager);
             dosyaManager.komsuListesiAl(sehirManager);
@@ -33,34 +38,8 @@ namespace ProLab_21
                 if(sehirList[i].sehirAdi != "Kocaeli")
                     checkedListBox1.Items.Add(sehirList[i].sehirAdi);
             }
-            kMatris = KomsulukMatrisiManager.KomsulukMatrisi(sehirManager);
-
-            /*Button b = new Button();
-            b.Text = "Butttonum benim canim benim";
-            b.Location = new Point(10, 10);
-            b.Size = new Size(100, 20);
-
-            tabPage4.Controls.Add(b);
-            */
-            Label[] lDizi = new Label[81];
-            ISehir haritaIter = sehirManager.ilk;
-            int k = 0;
-            Image image1 = Image.FromFile(dosyaManager.Dosya.konumDosyaYolu);
-            while (haritaIter != null)
-            {
-                lDizi[k] = new Label();
-                //lDizi[k].Text = haritaIter.sehirAdi;
-                lDizi[k].Text = "";
-                lDizi[k].Width = 16;
-                lDizi[k].Height = 32;
-                lDizi[k].Image = image1;
-                lDizi[k].BackColor = Color.Transparent;
-                lDizi[k].TextAlign = ContentAlignment.MiddleCenter;
-                lDizi[k].Location = new Point((int)haritaIter.kordinatX-10, (int)haritaIter.kordinatY-30);
-                this.Controls.Add(lDizi[k]);
-                k++;
-                haritaIter = haritaIter.ileri;
-            }
+            kMatris = KomsulukMatrisiManager.KomsulukMatrisi(sehirManager);        
+           
         }
 
        
@@ -108,6 +87,25 @@ namespace ProLab_21
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            ISehir haritaIter = sehirManager.ilk;
+            //int k = 0;
+            //Label[] lDizi = new Label[81];
+            //Image image1 = Image.FromFile(dosyaManager.Dosya.konumDosyaYolu);
+            //while (haritaIter != null)
+            //{
+            //    lDizi[k] = new Label();
+            //    lDizi[k].Text = "";
+            //    lDizi[k].Width = 16;
+            //    lDizi[k].Height = 32;
+            //    lDizi[k].Image = image1;
+            //    lDizi[k].BackColor = Color.Transparent;
+            //    lDizi[k].TextAlign = ContentAlignment.MiddleCenter;
+            //    lDizi[k].Location = new Point((int)haritaIter.kordinatX - 10, (int)haritaIter.kordinatY - 30);
+            //    this.pictureBox1.Controls.Add(lDizi[k]);
+            //    k++;
+            //    haritaIter = haritaIter.ileri;
+            //}
+
 
         }
 
@@ -132,52 +130,86 @@ namespace ProLab_21
         {
 
         }
-
+        
         private void button4_Click(object sender, EventArgs e)
         {
+            Graphics g;
             
+            Image image = Image.FromFile(dosyaManager.Dosya.haritaDosyaYolu);
+            
+
             GFG t = new GFG();
+            g = Graphics.FromImage(DrawArea);
+            //g.Clear(Color.White);
+            
+
+
+            HatchBrush hatchBrush = new HatchBrush(HatchStyle.Horizontal, Color.Black);
+            SolidBrush blueBrush = new SolidBrush(Color.Blue);
+
+            Pen mypen = new Pen(hatchBrush, 4);
+
+
             listBox4.Items.Clear();
             t.topluDijikstra(kMatris, 40, arananListesiIndis);
             listBox4.Items.Add(sehirManager.GetSehir(40 + 1).sehirAdi);
+            Label[] lDizi = new Label[t.tamYol.Count];
+            Image image1 = Image.FromFile(dosyaManager.Dosya.konumDosyaYolu);
+
+            
+            
             for (int i = 0; i< t.tamYol.Count;i++)
             {
-                listBox4.Items.Add(sehirManager.GetSehir(t.tamYol[i] + 1).sehirAdi);
+                ISehir OncekiSehirBilgisi = null;
+                if (i == 0)
+                    OncekiSehirBilgisi = sehirManager.GetSehir(41);
+                else
+                    OncekiSehirBilgisi = sehirManager.GetSehir(t.tamYol[i - 1] + 1);
+                
+                    
+                ISehir sehirBilgisi = sehirManager.GetSehir(t.tamYol[i] + 1);
+                
+                listBox4.Items.Add(sehirBilgisi.sehirAdi);
+                g.DrawLine(mypen, OncekiSehirBilgisi.kordinatX, OncekiSehirBilgisi.kordinatY, sehirBilgisi.kordinatX, sehirBilgisi.kordinatY);
+
+                
+                
+                
+                    lDizi[i] = new Label();
+                    lDizi[i].Text = "";
+                    lDizi[i].Width = 16;
+                    lDizi[i].Height = 32;
+                    lDizi[i].Image = image1;
+                    lDizi[i].BackColor = Color.Transparent;
+                    lDizi[i].TextAlign = ContentAlignment.MiddleCenter;
+                    lDizi[i].Location = new Point((int)sehirBilgisi.kordinatX-7, sehirBilgisi.kordinatY-28);
+                    this.pictureBox1.Controls.Add(lDizi[i]);
+                    
                 
             }
-            MessageBox.Show(t.toplamMinMesafe.ToString() + "KM");
+            //            g.DrawImage(image, 0, 0);
+            pictureBox1.SendToBack();
+            //MessageBox.Show(t.toplamMinMesafe.ToString() + "KM");
+
+
+
+
+
+
+
+            pictureBox1.Image = DrawArea;
+
+            g.Dispose();
         }
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
-           
-         /*   Pen blackPen = new Pen(Color.DarkRed, 2);
-            // Draw line using integer coordinates
-            ISehir iter1 = sehirManager.ilk;
 
-            while(iter1 != null)
-            {
-                for(int i = 0; i< iter1.komsuSayisi;i++)
-                {
-                    int X1 = iter1.kordinatX, Y1 = iter1.kordinatY, X2 = iter1.komsular[i].kordinatX, Y2 = iter1.komsular[i].kordinatY;
-                    e.Graphics.DrawLine(blackPen, X1, Y1, X2, Y2);
-                }
-
-                iter1 = iter1.ileri;
-            }
-             blackPen.Dispose();          
-            */ 
-
+       
 
             
         }
 
-        private void Form1_DoubleClick(object sender, EventArgs e)
-        {
-            if (tabControl1.Visible == true)
-                tabControl1.Visible = false;
-            else
-                tabControl1.Visible = true;
-        }
+
 
 
     }

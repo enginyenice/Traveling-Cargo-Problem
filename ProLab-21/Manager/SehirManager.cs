@@ -132,8 +132,8 @@ namespace ProLab_21.Manager
                 }
                 sehirBilgileri = sehirBilgileri.ileri;
             }
-            sehirBilgileri.kordinatX = x * 2 -50;
-            sehirBilgileri.kordinatY = y * 2 -70;
+            sehirBilgileri.kordinatX = x;
+            sehirBilgileri.kordinatY = y;
         }
 
     }

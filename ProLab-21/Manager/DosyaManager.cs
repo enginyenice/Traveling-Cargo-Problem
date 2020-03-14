@@ -15,7 +15,7 @@ namespace ProLab_21.Manager
         public void sehirListesiAl(SehirManager sehirManager)
         {
 
-            string dosya_yolu = @Dosya.DosyaYolu;
+            string dosya_yolu = @Dosya.sehirlerDosyaYolu;
             FileStream fs = new FileStream(dosya_yolu, FileMode.Open, FileAccess.Read);
             StreamReader sw = new StreamReader(fs);
             string yazi = sw.ReadLine();
@@ -32,7 +32,7 @@ namespace ProLab_21.Manager
         }
         public void komsuListesiAl(SehirManager sehirManager)
         {
-            string dosya_yolu = @Dosya.DosyaYolu;
+            string dosya_yolu = @Dosya.sehirlerDosyaYolu;
             FileStream fs = new FileStream(dosya_yolu, FileMode.Open, FileAccess.Read);
             StreamReader sw = new StreamReader(fs);
             string yazi = sw.ReadLine();
@@ -57,7 +57,7 @@ namespace ProLab_21.Manager
         }
         public void kordinatEkle(SehirManager sehirManager)
         {
-            string dosya_yolu = @Dosya.KordinatDosyaYolu;
+            string dosya_yolu = Dosya.kordinatDosyaYolu;
             FileStream fs = new FileStream(dosya_yolu, FileMode.Open, FileAccess.Read);
             StreamReader sw = new StreamReader(fs);
             string yazi = sw.ReadLine();
