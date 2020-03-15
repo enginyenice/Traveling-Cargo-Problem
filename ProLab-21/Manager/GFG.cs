@@ -11,6 +11,7 @@ public class GFG
     public int toplamMinMesafe = 0;
     public List<Int32> tamYol = new List<int>();
     public bool kont= true;
+
     public GFG()
     {
         kenarlar.Clear();
@@ -38,12 +39,14 @@ public class GFG
         if (bitisKenarlari.Count == 0)
         {
 
+            /*
             Console.WriteLine("\t\t Toplam Min Mesafe: " + toplamMinMesafe+ "\n");
             Console.Write("Kenar Yolu \n");
             Console.WriteLine("40");
+            */
             for (int i = 0; i< tamYol.Count;i++)
             {
-                Console.WriteLine(tamYol[i] + " ");
+              //  Console.WriteLine(tamYol[i] + " ");
             }
             kont = true;
             return;
@@ -55,7 +58,7 @@ public class GFG
         {
             tamYol.Add(kenarlar[i]);
         }
-        Console.WriteLine("\nMin Mesafe " + minMesafe);
+        //Console.WriteLine("\nMin Mesafe " + minMesafe);
         toplamMinMesafe += minMesafe;
         baslangicKenari = bitisKenarlari[minMesafeIndis];
         bitisKenarlari.RemoveAt(minMesafeIndis);
@@ -70,6 +73,12 @@ public class GFG
 
 
     }
+
+    internal void topluDijikstra(object kMatris, int v, object arananListesiIndis)
+    {
+        throw new NotImplementedException();
+    }
+
     public  void dijkstra(int[,] komsulukMatrisi,int baslangicKenari,int bitisKenari)
     {
         int nKenar = komsulukMatrisi.GetLength(0);
@@ -140,9 +149,11 @@ public class GFG
         {
             if (sehirIndex != baslangicKenari && sehirIndex == bitisKenari)
             {
+                /*
                 Console.Write("\n" + baslangicKenari + " -> ");
                 Console.Write(bitisKenari + " \t\t ");
                 Console.Write(mesafeler[bitisKenari] + "\t\t");
+                */
                 arananSehirMesafeleri.Add(mesafeler[bitisKenari]);
                 cozumYolunuEkranaYaz(sehirIndex, parents);
             }
@@ -156,7 +167,7 @@ public class GFG
             return;
         }
         cozumYolunuEkranaYaz(parents[gecerliKenar], parents);
-        Console.Write(gecerliKenar + " ");
+       // Console.Write(gecerliKenar + " ");
         kenarlar.Add(gecerliKenar);
 
     }
