@@ -52,6 +52,7 @@
     <Compile Include="Entity\IDosya.cs" />
     <Compile Include="Entity\IMatris.cs" />
     <Compile Include="Entity\ISehir.cs" />
+    <Compile Include="Entity\IYol.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -61,6 +62,7 @@
     <Compile Include="Manager\DosyaManager.cs" />
     <Compile Include="Manager\GFG.cs" />
     <Compile Include="Manager\KomsulukMatrisiManager.cs" />
+    <Compile Include="Manager\PermutasyonManager.cs" />
     <Compile Include="Manager\SehirManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
