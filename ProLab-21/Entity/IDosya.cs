@@ -11,7 +11,6 @@ namespace ProLab_21.Entity
     {
         public static  string baslangicYolu = Application.StartupPath;
         public static string path = baslangicYolu + "/assets/";
-
         public string konumDosyaYolu = path+ "konum.png";
         public string haritaDosyaYolu = path+"harita.jpg";
         public string sehirlerDosyaYolu = path + "sehir.txt";

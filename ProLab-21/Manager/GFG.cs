@@ -9,6 +9,7 @@ public class GFG
     public List<Int32> arananSehirMesafeleri = new List<int>();
     public int enKisaMesafe = 0;
     public int toplamMinMesafe = 0;
+
     public List<Int32> tamYol = new List<int>();
     public bool kont= true;
 
@@ -19,17 +20,18 @@ public class GFG
         enKisaMesafe = 0;
         toplamMinMesafe = 0;
         tamYol.Clear();
+
         kont = true;
 
     }
 
-    public void topluDijikstra(int[,] komsulukMatrisi, int baslangicKenari, List<Int32> bitisKenarlari)
+    public void topluDijikstra(int[,] komsulukMatrisi, int baslangicKenari, List<Int32> bitisKenarlari,int status)
     {
         int minMesafe = Int32.MaxValue;
         int minMesafeIndis = Int32.MaxValue;
         for (int i = 0; i < bitisKenarlari.Count; i++)
         {
-            dijkstra(komsulukMatrisi, baslangicKenari, bitisKenarlari[i]);
+            dijkstra(komsulukMatrisi, baslangicKenari, bitisKenarlari[i],status);
             if (arananSehirMesafeleri[i] < minMesafe)
             {
                 minMesafe = arananSehirMesafeleri[i];
@@ -38,27 +40,16 @@ public class GFG
         }
         if (bitisKenarlari.Count == 0)
         {
-
-            /*
-            Console.WriteLine("\t\t Toplam Min Mesafe: " + toplamMinMesafe+ "\n");
-            Console.Write("Kenar Yolu \n");
-            Console.WriteLine("40");
-            */
-            for (int i = 0; i< tamYol.Count;i++)
-            {
-              //  Console.WriteLine(tamYol[i] + " ");
-            }
-            kont = true;
             return;
         }
         else { 
         kenarlar.Clear();
-        dijkstra(komsulukMatrisi, baslangicKenari, bitisKenarlari[minMesafeIndis]);
+        dijkstra(komsulukMatrisi, baslangicKenari, bitisKenarlari[minMesafeIndis],status);
         for (int i = 1; i < kenarlar.Count; i++)
         {
-            tamYol.Add(kenarlar[i]);
+                tamYol.Add(kenarlar[i]);
         }
-        //Console.WriteLine("\nMin Mesafe " + minMesafe);
+        Console.WriteLine("\nMin Mesafe " + minMesafe);
         toplamMinMesafe += minMesafe;
         baslangicKenari = bitisKenarlari[minMesafeIndis];
         bitisKenarlari.RemoveAt(minMesafeIndis);
@@ -68,18 +59,18 @@ public class GFG
                 bitisKenarlari.Add(40);
                 kont = false;
             }
-        topluDijikstra(komsulukMatrisi, baslangicKenari, bitisKenarlari);
+        topluDijikstra(komsulukMatrisi, baslangicKenari, bitisKenarlari,status);
         }
 
 
     }
 
-    internal void topluDijikstra(object kMatris, int v, object arananListesiIndis)
+    internal void topluDijikstra(object kMatris, int v, object arananListesiIndis, int status)
     {
         throw new NotImplementedException();
     }
 
-    public  void dijkstra(int[,] komsulukMatrisi,int baslangicKenari,int bitisKenari)
+    public  void dijkstra(int[,] komsulukMatrisi,int baslangicKenari,int bitisKenari, int status)
     {
         int nKenar = komsulukMatrisi.GetLength(0);
         int[] enKisaMesafeler = new int[nKenar];
@@ -135,12 +126,13 @@ public class GFG
             }
         }
 
-        cozumuEkranaYaz(baslangicKenari, enKisaMesafeler, parents,bitisKenari);
+        cozumuEkranaYaz(baslangicKenari, enKisaMesafeler, parents,bitisKenari,status);
     }
     public  void cozumuEkranaYaz(int baslangicKenari,
                                     int[] mesafeler,
                                     int[] parents,
-                                    int bitisKenari)
+                                    int bitisKenari,
+                                    int status)
     {
         int nKenar = mesafeler.Length;
      
