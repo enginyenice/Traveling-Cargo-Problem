@@ -151,7 +151,7 @@ namespace ProLab_21
             else if(color == 4)
                 mypen = new Pen(purpleBrush, 3);
 
-            g.DrawLine(mypen, x, y, x1, y1);
+            g.DrawLine(mypen, x+(3*color), y+ (3 * color), x1+ (3 * color), y1+ (3 * color));
 
         }
         

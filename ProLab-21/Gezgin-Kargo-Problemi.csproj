@@ -90,11 +90,5 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="Assets\konum.png" />
-    <Content Include="Assets\kordinat.txt" />
-    <Content Include="Assets\harita.jpg" />
-    <Content Include="Assets\sehir.txt" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
