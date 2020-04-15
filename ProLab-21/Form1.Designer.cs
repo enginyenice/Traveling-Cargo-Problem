@@ -35,6 +35,8 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -46,6 +48,7 @@
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.button1 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPage2.SuspendLayout();
@@ -55,6 +58,7 @@
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.textBox1);
             this.tabPage5.Controls.Add(this.pictureBox1);
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
@@ -76,7 +80,7 @@
             // listBox4
             // 
             this.listBox4.FormattingEnabled = true;
-            this.listBox4.Location = new System.Drawing.Point(728, 3);
+            this.listBox4.Location = new System.Drawing.Point(399, 21);
             this.listBox4.Name = "listBox4";
             this.listBox4.Size = new System.Drawing.Size(54, 17);
             this.listBox4.TabIndex = 2;
@@ -103,6 +107,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.listBox1);
+            this.tabPage1.Controls.Add(this.button2);
             this.tabPage1.Controls.Add(this.richTextBox2);
             this.tabPage1.Controls.Add(this.label5);
             this.tabPage1.Controls.Add(this.label4);
@@ -122,10 +128,29 @@
             this.tabPage1.Text = "Şehir Listesi ve Yol Bul";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(687, 576);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(442, 69);
+            this.listBox1.TabIndex = 22;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(1135, 576);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(163, 69);
+            this.button2.TabIndex = 21;
+            this.button2.Text = "Yolu Ciz";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // richTextBox2
             // 
             this.richTextBox2.Location = new System.Drawing.Point(388, 39);
             this.richTextBox2.Name = "richTextBox2";
+            this.richTextBox2.ReadOnly = true;
             this.richTextBox2.Size = new System.Drawing.Size(910, 531);
             this.richTextBox2.TabIndex = 20;
             this.richTextBox2.Text = "";
@@ -181,7 +206,7 @@
             // 
             this.button3.Location = new System.Drawing.Point(388, 576);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(910, 71);
+            this.button3.Size = new System.Drawing.Size(293, 71);
             this.button3.TabIndex = 10;
             this.button3.Text = "Komşuluk Matrisi";
             this.button3.UseVisualStyleBackColor = true;
@@ -225,6 +250,16 @@
             this.tabControl1.Size = new System.Drawing.Size(1314, 681);
             this.tabControl1.TabIndex = 10;
             // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("DejaVu Sans Mono", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.textBox1.Location = new System.Drawing.Point(8, 537);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(670, 116);
+            this.textBox1.TabIndex = 1;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -236,6 +271,7 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabPage5.ResumeLayout(false);
+            this.tabPage5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -264,6 +300,9 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.RichTextBox richTextBox2;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 

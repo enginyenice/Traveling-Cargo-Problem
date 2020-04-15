@@ -56,8 +56,19 @@ namespace ProLab_21
                 lDizi[i].Location = new Point(13000, 13000);
             }
         }
+        public List<Int32> yol0 = new List<int>();
+        public List<Int32> yol1 = new List<int>();
+        public List<Int32> yol2 = new List<int>();
+        public List<Int32> yol3 = new List<int>();
+        public List<Int32> yol4 = new List<int>();
         private void button1_Click(object sender, EventArgs e)
         {
+            listBox1.Items.Clear();
+            yol0.Clear();
+            yol1.Clear();
+            yol2.Clear();
+            yol3.Clear();
+            yol4.Clear();
             g.Clear(Color.White);
             Image harita = Image.FromFile(dosyaManager.Dosya.haritaDosyaYolu);
             g.DrawImage(harita, 0, 0, 1300, 650);
@@ -72,6 +83,19 @@ namespace ProLab_21
             {
                 checkedListBox1.SetItemCheckState(i, CheckState.Unchecked);
             }
+            if (yol0.Count > 0)
+                listBox1.Items.Add("1.Yol");
+            if (yol1.Count > 0)
+                listBox1.Items.Add("2.Yol");
+            if (yol2.Count > 0)
+                listBox1.Items.Add("3.Yol");
+            if (yol3.Count > 0)
+                listBox1.Items.Add("4.Yol");
+            if (yol4.Count > 0)
+                listBox1.Items.Add("5.Yol");
+
+           
+
         }
         public void ArananListesiOlustusur()
         {
@@ -132,167 +156,18 @@ namespace ProLab_21
         }
         Graphics g;
         
-        public void haritadaCiz(int x,int y,int x1,int y1,int color)
+        public void haritadaCiz(int x,int y,int x1,int y1)
         {
             
             GFG t = new GFG();
-            SolidBrush blueBrush = new SolidBrush(Color.Blue);
-            SolidBrush redBrush = new SolidBrush(Color.Red);
-            SolidBrush blackBrush= new SolidBrush(Color.Black);
-            SolidBrush darkOrangeBrus = new SolidBrush(Color.DarkOrange);
-            SolidBrush purpleBrush = new SolidBrush(Color.Purple);
-             Pen mypen = new Pen(redBrush, 3);
-            if (color == 1)
-               mypen = new Pen(blueBrush, 3);
-            else if(color == 2)
-                mypen = new Pen(blackBrush, 3);            
-            else if(color == 3)
-                mypen = new Pen(darkOrangeBrus, 3);            
-            else if(color == 4)
-                mypen = new Pen(purpleBrush, 3);
-
-            g.DrawLine(mypen, x+(3*color), y+ (3 * color), x1+ (3 * color), y1+ (3 * color));
-
-        }
-        
-        
-        public void haritadaCiz()
-        {
-            Graphics g;
-            GFG t = new GFG();
-            g = Graphics.FromImage(DrawArea);
-            g.Clear(Color.White);
-            Image harita = Image.FromFile(dosyaManager.Dosya.haritaDosyaYolu);
-            g.DrawImage(harita, 0, 0, 1300, 650);
-            HatchBrush hatchBrush = new HatchBrush(HatchStyle.Horizontal, Color.Black);
-            SolidBrush blueBrush = new SolidBrush(Color.Blue);
-            Pen mypen = new Pen(hatchBrush, 3);
-            listBox4.Items.Clear();
-
-          
-            List<Int32> arananListCopy = new List<int>();
-            for (int i = 0; i < arananListesiIndis.Count; i++)
-                arananListCopy.Add(arananListesiIndis[i]);
-
-            t.topluDijikstra(kMatris, 40, arananListesiIndis,0);
-            listBox4.Items.Add(sehirManager.GetSehir(40 + 1).sehirAdi);
-            /*********************************************/
-
-           
-
-
-
-
-
-            /*********************************************/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            for (int i = 0; i < t.tamYol.Count; i++)
-            {
-
-                ISehir OncekiSehirBilgisi = null;
-                if (i == 0)
-                {
-                    OncekiSehirBilgisi = sehirManager.GetSehir(41);
-                }
-                else
-                {
-                    OncekiSehirBilgisi = sehirManager.GetSehir(t.tamYol[i - 1] + 1);
-                }
-
-
-                ISehir sehirBilgisi = sehirManager.GetSehir(t.tamYol[i] + 1);
-
-                listBox4.Items.Add(sehirBilgisi.sehirAdi);
-                richTextBox2.Text += sehirBilgisi.sehirAdi + " ";
-                g.DrawLine(mypen, OncekiSehirBilgisi.kordinatX, OncekiSehirBilgisi.kordinatY, sehirBilgisi.kordinatX, sehirBilgisi.kordinatY);
-                lDizi[i].Location = new Point(sehirBilgisi.kordinatX-8, sehirBilgisi.kordinatY-25);
-
-            }
-            /*
-                        pictureBox1.SendToBack();
-                        pictureBox1.Image = DrawArea;
-                        g.Dispose();
-                        label5.Text = t.toplamMinMesafe.ToString() + "KM";
-                        */
-
-            /******/
-            listBox4.Items.Add("-------------------");
-        BasaDon:
-            Random random = new Random();
-            int sayi = random.Next(t.tamYol.Count);
-            for (int i = 0; i < arananListCopy.Count; i++)
-            {
-                if (arananListCopy[i] == t.tamYol[sayi] || sayi == 0)
-                    goto BasaDon;
-            }
-
-            if (t.tamYol[sayi] != 40)
-            {
-
-                Graphics g1;
-                g1 = Graphics.FromImage(DrawArea);
-                g1.DrawImage(harita, 0, 0, 1300, 650);
-                Pen bluepen = new Pen(blueBrush, 2);
-
-
-
-
-
-
-
-                GFG t2 = new GFG();
-                kMatris[t.tamYol[sayi - 1], t.tamYol[sayi]] = 0;
-                t2.topluDijikstra(kMatris, 40, arananListCopy, 0);
-                for (int i = 0; i < t2.tamYol.Count; i++)
-                {
-
-                    ISehir OncekiSehirBilgisi = null;
-                    if (i == 0)
-                    {
-                        OncekiSehirBilgisi = sehirManager.GetSehir(41);
-                    }
-                    else
-                    {
-                        OncekiSehirBilgisi = sehirManager.GetSehir(t2.tamYol[i - 1] + 1);
-                    }
-
-
-                    ISehir sehirBilgisi = sehirManager.GetSehir(t2.tamYol[i] + 1);
-
-                    listBox4.Items.Add(sehirBilgisi.sehirAdi);
-                    g1.DrawLine(bluepen, OncekiSehirBilgisi.kordinatX, OncekiSehirBilgisi.kordinatY, sehirBilgisi.kordinatX, sehirBilgisi.kordinatY);
-                    //lDizi[i].Location = new Point(sehirBilgisi.kordinatX - 8, sehirBilgisi.kordinatY - 25);
-
-                }
-
-            }
-
-
-            /****/
-
-            pictureBox1.SendToBack();
-            pictureBox1.Image = DrawArea;
-            g.Dispose();
-            label5.Text = t.toplamMinMesafe.ToString() + "KM";
+            SolidBrush Brush1 = new SolidBrush(Color.Blue);
+            SolidBrush Brush2 = new SolidBrush(Color.Red);
+            SolidBrush Brush3 = new SolidBrush(Color.Black);
+            SolidBrush Brush4 = new SolidBrush(Color.DarkOrange);
+            SolidBrush Brush5 = new SolidBrush(Color.Purple);
+            SolidBrush Brush6 = new SolidBrush(Color.Aqua);
+            Pen mypen = new Pen(Brush3, 3);            
+            g.DrawLine(mypen, x, y, x1, y1);
         }
 
         public void yolBul(List<Int32> arananIndisListesi,int[,] matris,int tur)
@@ -317,9 +192,28 @@ namespace ProLab_21
             //richTextBox2.Text = "";
             t.topluDijikstra(newMatris, 40, arananIndisListesiCopy, 0);
             listBox4.Items.Add(sehirManager.GetSehir(40 + 1).sehirAdi);
-            richTextBox2.Text += sehirManager.GetSehir(41).sehirAdi;
+            richTextBox2.Text += sehirManager.GetSehir(41).sehirAdi +"("+ sehirManager.GetSehir(41).plaka.ToString()+") ";
             for (int i = 0; i < t.tamYol.Count; i++)
             {
+                switch(tur)
+                    {
+                        case 0:
+                            yol0.Add(t.tamYol[i]);
+                            break;
+                        case 1:
+                            yol1.Add(t.tamYol[i]);
+                            break;
+                        case 2:
+                            yol2.Add(t.tamYol[i]);
+                            break;
+                        case 3:
+                            yol3.Add(t.tamYol[i]);
+                            break;
+                        case 4:
+                            yol4.Add(t.tamYol[i]);
+                            break;
+
+                    }
                 ISehir OncekiSehirBilgisi = null;
                 if (i == 0)
                 {
@@ -334,10 +228,10 @@ namespace ProLab_21
                 ISehir sehirBilgisi = sehirManager.GetSehir(t.tamYol[i] + 1);
 
                 listBox4.Items.Add(sehirBilgisi.sehirAdi);
-                richTextBox2.Text += " - " + sehirBilgisi.sehirAdi;
+                richTextBox2.Text += " - " + sehirBilgisi.sehirAdi + "("+sehirBilgisi.plaka.ToString()+")";
 
-                haritadaCiz(OncekiSehirBilgisi.kordinatX, OncekiSehirBilgisi.kordinatY, sehirBilgisi.kordinatX, sehirBilgisi.kordinatY, tur);
-                lDizi[i].Location = new Point(sehirBilgisi.kordinatX - 8, sehirBilgisi.kordinatY - 25);
+
+                
 
             }
             richTextBox2.Text += "Toplam Mesafe: "+ t.toplamMinMesafe.ToString()+ "\n";
@@ -359,6 +253,53 @@ namespace ProLab_21
 
             }
             
+
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = "Kocaeli";
+            this.tabControl1.SelectedTab = tabPage5;
+            g.Clear(Color.White);
+            Image harita = Image.FromFile(dosyaManager.Dosya.haritaDosyaYolu);
+            g.DrawImage(harita, 0, 0, 1300, 650);
+            labelKonumlandir();
+            List<Int32> temp = new List<int>();
+            if(listBox1.SelectedItem.ToString() == "1.Yol")
+                temp = yol0;
+            else if (listBox1.SelectedItem.ToString() == "2.Yol")
+                temp = yol1;
+            else if (listBox1.SelectedItem.ToString() == "3.Yol")
+                temp = yol2;
+            else if (listBox1.SelectedItem.ToString() == "4.Yol")
+                temp =  yol3;
+            else if (listBox1.SelectedItem.ToString() == "5.Yol")
+                temp = yol4;
+            else
+                MessageBox.Show("Hatalı Seçim");
+
+
+            for (int i = 0; i < temp.Count; i++)
+            {
+                ISehir OncekiSehirBilgisi = null;
+                if (i == 0)
+                {
+                    OncekiSehirBilgisi = sehirManager.GetSehir(41);
+                }
+                else
+                {
+                    OncekiSehirBilgisi = sehirManager.GetSehir(temp[i - 1] + 1);
+                }
+
+
+                ISehir sehirBilgisi = sehirManager.GetSehir(temp[i] + 1);
+
+                //listBox4.Items.Add(sehirBilgisi.sehirAdi);
+                //richTextBox2.Text += " - " + sehirBilgisi.sehirAdi;
+                textBox1.Text += "-> "+sehirBilgisi.sehirAdi;
+                haritadaCiz(OncekiSehirBilgisi.kordinatX, OncekiSehirBilgisi.kordinatY, sehirBilgisi.kordinatX, sehirBilgisi.kordinatY);
+                lDizi[i].Location = new Point(sehirBilgisi.kordinatX-10, sehirBilgisi.kordinatY - 25);
 
             }
         }
