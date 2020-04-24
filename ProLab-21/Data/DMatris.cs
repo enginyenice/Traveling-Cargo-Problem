@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProLab_21.Entity
 {
-    class IMatris
+    class DMatris
     {
         public int[,] komsulukMatrisi = new int[81, 81];
     }

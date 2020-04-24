@@ -10,7 +10,7 @@ namespace ProLab_21.Manager
 {
     class DosyaManager
     {
-        public IDosya Dosya = new IDosya();
+        public DDosya Dosya = new DDosya();
         //SehirManager sehirManager = new SehirManager();
         public void sehirListesiAl(SehirManager sehirManager)
         {
@@ -72,6 +72,80 @@ namespace ProLab_21.Manager
             }
             sw.Close();
             fs.Close();
+        }
+        public void ciktiDosyasiOlustur(SehirManager sehirManager, List<Int32> arananListesiIndis,List<Int32> yol0, List<Int32> yol1, List<Int32> yol2, List<Int32> yol3, List<Int32> yol4, List<Int32> tumMesafeler)
+        {
+         string dosya_yolu = Dosya.ciktiDosyaYolu;
+         FileStream fs = new FileStream(dosya_yolu, FileMode.Append, FileAccess.Write);
+         StreamWriter sw = new StreamWriter(fs);
+            sw.WriteLine("Gidilmesi Gereken Şehirler");
+            sw.Write("Kocaeli(41)");
+            for (int i = 0; i < arananListesiIndis.Count; i++)
+            {
+                sw.Write(" - " + sehirManager.GetSehir(arananListesiIndis[i] + 1).sehirAdi.ToString()+"("+ sehirManager.GetSehir(arananListesiIndis[i] + 1).plaka.ToString() + ")");
+            }
+            sw.Write("- Kocaeli(41)");
+            sw.WriteLine("\nEn Kısa Yollar");
+            if (yol0.Count > 0)
+         {
+            sw.Write("Kocaeli");
+            for (int i = 0;i< yol0.Count;i++)
+            {
+                    sw.Write(" - "+sehirManager.GetSehir(yol0[i] + 1).sehirAdi.ToString());
+            }
+                sw.WriteLine("\n----[TOPLAM MESAFE: " + tumMesafeler[0].ToString() + "]----");
+         }
+
+
+            if (yol1.Count > 0)
+            {
+                sw.Write("Kocaeli");
+                for (int i = 0; i < yol1.Count; i++)
+                {
+                    sw.Write(" - " + sehirManager.GetSehir(yol1[i] + 1).sehirAdi.ToString());
+                }
+                sw.WriteLine("\n----[TOPLAM MESAFE: " + tumMesafeler[1].ToString() + "]----");
+            }
+
+
+
+
+            if (yol2.Count > 0)
+            {
+                sw.Write("Kocaeli");
+                for (int i = 0; i < yol2.Count; i++)
+                {
+                    sw.Write(" - " + sehirManager.GetSehir(yol2[i] + 1).sehirAdi.ToString());
+                }
+                sw.WriteLine("\n----[TOPLAM MESAFE: " + tumMesafeler[2].ToString() + "]----");
+            }
+
+
+
+            if (yol3.Count > 0)
+            {
+                sw.Write("Kocaeli");
+                for (int i = 0; i < yol3.Count; i++)
+                {
+                    sw.Write(" - " + sehirManager.GetSehir(yol3[i] + 1).sehirAdi.ToString());
+                }
+                sw.WriteLine("\n----[TOPLAM MESAFE: " + tumMesafeler[3].ToString() + "]----");
+            }
+
+
+            if (yol4.Count > 0)
+            {
+                sw.Write("Kocaeli");
+                for (int i = 0; i < yol4.Count; i++)
+                {
+                    sw.Write(" - " + sehirManager.GetSehir(yol4[i] + 1).sehirAdi.ToString());
+                }
+                sw.WriteLine("\n----[TOPLAM MESAFE: " + tumMesafeler[4].ToString() + "]----");
+            }
+            sw.WriteLine("\n-------------------------------------------------------------------------------------\n");
+            sw.Flush();
+                sw.Close();
+                fs.Close();
         }
     }
 }

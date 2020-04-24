@@ -49,9 +49,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entity\IDosya.cs" />
-    <Compile Include="Entity\IMatris.cs" />
-    <Compile Include="Entity\ISehir.cs" />
+    <Compile Include="Data\DDosya.cs" />
+    <Compile Include="Data\DMatris.cs" />
+    <Compile Include="Data\DSehir.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

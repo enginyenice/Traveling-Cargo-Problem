@@ -9,8 +9,8 @@ namespace ProLab_21.Manager
 {
     class SehirManager
     {
-        public ISehir ilk;
-        public ISehir son;
+        public DSehir ilk;
+        public DSehir son;
         
 
         public SehirManager()
@@ -21,7 +21,7 @@ namespace ProLab_21.Manager
         public bool sehirEkle(int plaka,string sehirAdi)
         {
             try{
-                ISehir node = new ISehir(plaka, sehirAdi);
+                DSehir node = new DSehir(plaka, sehirAdi);
                 if (ilk == null)
                 {
                     ilk = node;
@@ -42,10 +42,10 @@ namespace ProLab_21.Manager
                 return false;
             }
         }
-        public List<ISehir> sehirListesi()
+        public List<DSehir> sehirListesi()
         {
-            List<ISehir> sehirList = new List<ISehir>();
-            ISehir iter;
+            List<DSehir> sehirList = new List<DSehir>();
+            DSehir iter;
             iter = ilk;
             while(iter != null)
             {
@@ -57,7 +57,7 @@ namespace ProLab_21.Manager
         }
         public bool komsuEkle(string sahipSehir,string komsuSehir,int maliyet)
         {
-            ISehir sahipNode, komsuNode;
+            DSehir sahipNode, komsuNode;
             sahipNode = ilk;
             komsuNode = ilk;
 
@@ -92,9 +92,9 @@ namespace ProLab_21.Manager
 
 
         }
-        public ISehir GetSehir(string sehirAdi)
+        public DSehir GetSehir(string sehirAdi)
         {
-            ISehir sehirBilgileri = ilk;
+            DSehir sehirBilgileri = ilk;
             while(sehirBilgileri != null)
             {
                 if (sehirBilgileri.sehirAdi == sehirAdi)
@@ -107,9 +107,9 @@ namespace ProLab_21.Manager
             return sehirBilgileri;
         }
 
-        public ISehir GetSehir(int plaka)
+        public DSehir GetSehir(int plaka)
         {
-            ISehir sehirBilgileri = ilk;
+            DSehir sehirBilgileri = ilk;
             while (sehirBilgileri != null)
             {
                 if (sehirBilgileri.plaka == plaka)
@@ -123,7 +123,7 @@ namespace ProLab_21.Manager
         }
         public void kordinatEkle(int plaka,int x,int y)
         {
-            ISehir sehirBilgileri = ilk;
+            DSehir sehirBilgileri = ilk;
             while(sehirBilgileri != null)
             {
                 if(sehirBilgileri.plaka == plaka)

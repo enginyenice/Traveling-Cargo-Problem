@@ -30,8 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.listBox4 = new System.Windows.Forms.ListBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -43,12 +43,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.button1 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPage2.SuspendLayout();
@@ -67,6 +65,16 @@
             this.tabPage5.Text = "Harita Gosterimi";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("DejaVu Sans Mono", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.textBox1.Location = new System.Drawing.Point(8, 537);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(670, 116);
+            this.textBox1.TabIndex = 1;
+            // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
@@ -76,14 +84,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(1300, 650);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // listBox4
-            // 
-            this.listBox4.FormattingEnabled = true;
-            this.listBox4.Location = new System.Drawing.Point(399, 21);
-            this.listBox4.Name = "listBox4";
-            this.listBox4.Size = new System.Drawing.Size(54, 17);
-            this.listBox4.TabIndex = 2;
             // 
             // tabPage2
             // 
@@ -99,9 +99,9 @@
             // richTextBox1
             // 
             this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.richTextBox1.Location = new System.Drawing.Point(3, -33);
+            this.richTextBox1.Location = new System.Drawing.Point(3, 6);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(1300, 685);
+            this.richTextBox1.Size = new System.Drawing.Size(1300, 646);
             this.richTextBox1.TabIndex = 8;
             this.richTextBox1.Text = "";
             // 
@@ -115,8 +115,6 @@
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Controls.Add(this.listBox4);
-            this.tabPage1.Controls.Add(this.button3);
             this.tabPage1.Controls.Add(this.listBox2);
             this.tabPage1.Controls.Add(this.checkedListBox1);
             this.tabPage1.Controls.Add(this.button1);
@@ -131,16 +129,16 @@
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(687, 576);
+            this.listBox1.Location = new System.Drawing.Point(199, 102);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(442, 69);
+            this.listBox1.Size = new System.Drawing.Size(183, 355);
             this.listBox1.TabIndex = 22;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(1135, 576);
+            this.button2.Location = new System.Drawing.Point(199, 463);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(163, 69);
+            this.button2.Size = new System.Drawing.Size(183, 184);
             this.button2.TabIndex = 21;
             this.button2.Text = "Yolu Ciz";
             this.button2.UseVisualStyleBackColor = true;
@@ -148,10 +146,10 @@
             // 
             // richTextBox2
             // 
-            this.richTextBox2.Location = new System.Drawing.Point(388, 39);
+            this.richTextBox2.Location = new System.Drawing.Point(394, 63);
             this.richTextBox2.Name = "richTextBox2";
             this.richTextBox2.ReadOnly = true;
-            this.richTextBox2.Size = new System.Drawing.Size(910, 531);
+            this.richTextBox2.Size = new System.Drawing.Size(906, 584);
             this.richTextBox2.TabIndex = 20;
             this.richTextBox2.Text = "";
             // 
@@ -159,7 +157,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label5.Location = new System.Drawing.Point(1009, 5);
+            this.label5.Location = new System.Drawing.Point(822, 21);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(29, 31);
             this.label5.TabIndex = 15;
@@ -169,16 +167,16 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F);
-            this.label4.Location = new System.Drawing.Point(788, 5);
+            this.label4.Location = new System.Drawing.Point(388, 21);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(215, 31);
+            this.label4.Size = new System.Drawing.Size(428, 31);
             this.label4.TabIndex = 14;
-            this.label4.Text = "Toplam Mesafe: ";
+            this.label4.Text = "Yollar Arasındaki En Kısa Mesafe: ";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(389, 5);
+            this.label3.Location = new System.Drawing.Point(196, 87);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(64, 13);
             this.label3.TabIndex = 13;
@@ -196,28 +194,18 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(199, 5);
+            this.label1.Location = new System.Drawing.Point(10, 328);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(92, 13);
             this.label1.TabIndex = 11;
             this.label1.Text = "Seçilen Yol Listesi";
             // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(388, 576);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(293, 71);
-            this.button3.TabIndex = 10;
-            this.button3.Text = "Komşuluk Matrisi";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
             // listBox2
             // 
             this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(199, 21);
+            this.listBox2.Location = new System.Drawing.Point(10, 344);
             this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(183, 628);
+            this.listBox2.Size = new System.Drawing.Size(183, 303);
             this.listBox2.TabIndex = 9;
             // 
             // checkedListBox1
@@ -225,12 +213,12 @@
             this.checkedListBox1.FormattingEnabled = true;
             this.checkedListBox1.Location = new System.Drawing.Point(10, 21);
             this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(183, 559);
+            this.checkedListBox1.Size = new System.Drawing.Size(183, 304);
             this.checkedListBox1.TabIndex = 4;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(10, 586);
+            this.button1.Location = new System.Drawing.Point(199, 21);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(183, 63);
             this.button1.TabIndex = 5;
@@ -249,16 +237,6 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1314, 681);
             this.tabControl1.TabIndex = 10;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("DejaVu Sans Mono", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.textBox1.Location = new System.Drawing.Point(8, 537);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(670, 116);
-            this.textBox1.TabIndex = 1;
             // 
             // Form1
             // 
@@ -284,11 +262,9 @@
         #endregion
 
         private System.Windows.Forms.TabPage tabPage5;
-        private System.Windows.Forms.ListBox listBox4;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.CheckedListBox checkedListBox1;
         private System.Windows.Forms.Button button1;

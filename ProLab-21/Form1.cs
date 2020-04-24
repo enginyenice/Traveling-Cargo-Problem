@@ -19,7 +19,7 @@ namespace ProLab_21
         Bitmap DrawArea;
         SehirManager sehirManager = new SehirManager();
         DosyaManager dosyaManager = new DosyaManager();
-        List<ISehir> sehirList = new List<ISehir>();
+        List<DSehir> sehirList = new List<DSehir>();
         List<Int32> arananListesiIndis = new List<int>();
         public int[] arananArray;
         KomsulukMatrisiManager KomsulukMatrisiManager = new KomsulukMatrisiManager();
@@ -48,8 +48,7 @@ namespace ProLab_21
 
         }
 
-       
-       public void labelKonumlandir()
+        public void labelKonumlandir()
         {
             for (int i = 0; i < 120; i++)
             { 
@@ -61,6 +60,7 @@ namespace ProLab_21
         public List<Int32> yol2 = new List<int>();
         public List<Int32> yol3 = new List<int>();
         public List<Int32> yol4 = new List<int>();
+        public List<Int32> tumToplamMesafe = new List<int>();
         private void button1_Click(object sender, EventArgs e)
         {
             listBox1.Items.Clear();
@@ -69,6 +69,7 @@ namespace ProLab_21
             yol2.Clear();
             yol3.Clear();
             yol4.Clear();
+            tumToplamMesafe.Clear();
             g.Clear(Color.White);
             Image harita = Image.FromFile(dosyaManager.Dosya.haritaDosyaYolu);
             g.DrawImage(harita, 0, 0, 1300, 650);
@@ -84,7 +85,10 @@ namespace ProLab_21
                 checkedListBox1.SetItemCheckState(i, CheckState.Unchecked);
             }
             if (yol0.Count > 0)
+            {
                 listBox1.Items.Add("1.Yol");
+                listBox1.SetSelected(0, true);
+            }
             if (yol1.Count > 0)
                 listBox1.Items.Add("2.Yol");
             if (yol2.Count > 0)
@@ -93,9 +97,20 @@ namespace ProLab_21
                 listBox1.Items.Add("4.Yol");
             if (yol4.Count > 0)
                 listBox1.Items.Add("5.Yol");
+            enKisaMesafeyiLabeleYaz();
+            if(yol0.Count > 0)
+                dosyaManager.ciktiDosyasiOlustur(sehirManager, arananListesiIndis, yol0, yol1, yol2, yol3, yol4, tumToplamMesafe);
 
-           
-
+        }
+        public void enKisaMesafeyiLabeleYaz()
+        {
+            int minMesafe = Int32.MaxValue;
+            for(int i = 0; i<tumToplamMesafe.Count;i++)
+            {
+                if (tumToplamMesafe[i] < minMesafe)
+                    minMesafe = tumToplamMesafe[i];
+            }
+            label5.Text = minMesafe.ToString();
         }
         public void ArananListesiOlustusur()
         {
@@ -107,6 +122,7 @@ namespace ProLab_21
             }
             else
             {
+           
                 listBox2.Items.Add("Kocaeli");
                 for (int i = 0; i < checkedListBox1.CheckedItems.Count; i++)
                 {
@@ -122,6 +138,17 @@ namespace ProLab_21
         private void Form1_Load(object sender, EventArgs e)
         {
             
+            for (int i = 0; i < 81; i++)
+            {
+                //richTextBox1.Text +="";
+                for (int k = 0; k < 81; k++)
+                {
+                    richTextBox1.Text += kMatris[i, k] + "  ";
+                }
+                richTextBox1.Text += "\n";
+
+
+            }
             Image image1 = Image.FromFile(dosyaManager.Dosya.konumDosyaYolu);
 
             for(int i = 0; i< 120; i++)
@@ -138,21 +165,6 @@ namespace ProLab_21
             }
 
 
-        }
-        private void button3_Click(object sender, EventArgs e)
-        {
-            
-            for (int i = 0; i < 81; i++)
-            {
-                richTextBox1.Text += "{";
-                for (int k = 0; k < 81; k++)
-                {
-                    richTextBox1.Text += kMatris[i, k] + ",";
-                }
-                richTextBox1.Text += "},\n";
-
-
-            }
         }
         Graphics g;
         
@@ -188,10 +200,8 @@ namespace ProLab_21
             if (tur < 5)
             { 
             GFG t = new GFG();
-            listBox4.Items.Clear();
             //richTextBox2.Text = "";
             t.topluDijikstra(newMatris, 40, arananIndisListesiCopy, 0);
-            listBox4.Items.Add(sehirManager.GetSehir(40 + 1).sehirAdi);
             richTextBox2.Text += sehirManager.GetSehir(41).sehirAdi +"("+ sehirManager.GetSehir(41).plaka.ToString()+") ";
             for (int i = 0; i < t.tamYol.Count; i++)
             {
@@ -214,7 +224,7 @@ namespace ProLab_21
                             break;
 
                     }
-                ISehir OncekiSehirBilgisi = null;
+                DSehir OncekiSehirBilgisi = null;
                 if (i == 0)
                 {
                     OncekiSehirBilgisi = sehirManager.GetSehir(41);
@@ -225,20 +235,20 @@ namespace ProLab_21
                 }
 
 
-                ISehir sehirBilgisi = sehirManager.GetSehir(t.tamYol[i] + 1);
+                DSehir sehirBilgisi = sehirManager.GetSehir(t.tamYol[i] + 1);
 
-                listBox4.Items.Add(sehirBilgisi.sehirAdi);
-                richTextBox2.Text += " - " + sehirBilgisi.sehirAdi + "("+sehirBilgisi.plaka.ToString()+")";
+                richTextBox2.Text += "  -  " + sehirBilgisi.sehirAdi + "("+sehirBilgisi.plaka.ToString()+")";
 
-
+                /*TODO: En Kısa Mesafeyi Yukarı Yaz.*/
                 
 
             }
-            richTextBox2.Text += "Toplam Mesafe: "+ t.toplamMinMesafe.ToString()+ "\n";
-            label5.Text = t.toplamMinMesafe.ToString() + "KM";
-            
-            
-            if(t.tamYol.Count > 5)
+            richTextBox2.Text += "\n----[TOPLAM MESAFE: "+ t.toplamMinMesafe.ToString()+ "]----\n\n";
+            //label5.Text = t.toplamMinMesafe.ToString() + "KM";
+            tumToplamMesafe.Add(t.toplamMinMesafe);
+
+
+                if (t.tamYol.Count > 5)
             {
                 BurayaDon:
                 Random random = new Random();
@@ -259,49 +269,86 @@ namespace ProLab_21
 
         private void button2_Click(object sender, EventArgs e)
         {
-            textBox1.Text = "Kocaeli";
-            this.tabControl1.SelectedTab = tabPage5;
-            g.Clear(Color.White);
-            Image harita = Image.FromFile(dosyaManager.Dosya.haritaDosyaYolu);
-            g.DrawImage(harita, 0, 0, 1300, 650);
-            labelKonumlandir();
-            List<Int32> temp = new List<int>();
-            if(listBox1.SelectedItem.ToString() == "1.Yol")
-                temp = yol0;
-            else if (listBox1.SelectedItem.ToString() == "2.Yol")
-                temp = yol1;
-            else if (listBox1.SelectedItem.ToString() == "3.Yol")
-                temp = yol2;
-            else if (listBox1.SelectedItem.ToString() == "4.Yol")
-                temp =  yol3;
-            else if (listBox1.SelectedItem.ToString() == "5.Yol")
-                temp = yol4;
-            else
-                MessageBox.Show("Hatalı Seçim");
-
-
-            for (int i = 0; i < temp.Count; i++)
+           
+            if(listBox1.SelectedItem == null)
             {
-                ISehir OncekiSehirBilgisi = null;
-                if (i == 0)
+                MessageBox.Show("Yol Seçimi Yapılmadi");
+                
+            } else
+            {
+
+                textBox1.Text = "Kocaeli";
+                this.tabControl1.SelectedTab = tabPage5;
+                g.Clear(Color.White);
+                Image harita = Image.FromFile(dosyaManager.Dosya.haritaDosyaYolu);
+                g.DrawImage(harita, 0, 0, 1300, 650);
+                labelKonumlandir();
+                int tempIndex = 0;
+                List<Int32> temp = new List<int>();
+
+                if (listBox1.SelectedItem.ToString() == "1.Yol")
                 {
-                    OncekiSehirBilgisi = sehirManager.GetSehir(41);
+                    temp = yol0;
+                    tempIndex = 0;
+                }
+                else if (listBox1.SelectedItem.ToString() == "2.Yol")
+                {
+                    temp = yol1;
+                    tempIndex = 1;
+                }
+                else if (listBox1.SelectedItem.ToString() == "3.Yol")
+                {
+                    temp = yol2;
+                    tempIndex = 2;
+                }
+                else if (listBox1.SelectedItem.ToString() == "4.Yol")
+                {
+                    temp = yol3;
+                    tempIndex = 3;
+                }
+                else if (listBox1.SelectedItem.ToString() == "5.Yol")
+                {
+                    temp = yol4;
+                    tempIndex = 4;
                 }
                 else
+                    MessageBox.Show("Hatalı Seçim");
+
+
+                for (int i = 0; i < temp.Count; i++)
                 {
-                    OncekiSehirBilgisi = sehirManager.GetSehir(temp[i - 1] + 1);
+                    DSehir OncekiSehirBilgisi = null;
+                    if (i == 0)
+                    {
+                        OncekiSehirBilgisi = sehirManager.GetSehir(41);
+                    }
+                    else
+                    {
+                        OncekiSehirBilgisi = sehirManager.GetSehir(temp[i - 1] + 1);
+                    }
+
+
+                    DSehir sehirBilgisi = sehirManager.GetSehir(temp[i] + 1);
+
+                    //richTextBox2.Text += " - " + sehirBilgisi.sehirAdi;
+                    textBox1.Text += "-> " + sehirBilgisi.sehirAdi;
+
+                    haritadaCiz(OncekiSehirBilgisi.kordinatX, OncekiSehirBilgisi.kordinatY, sehirBilgisi.kordinatX, sehirBilgisi.kordinatY);
+                    lDizi[i].Location = new Point(sehirBilgisi.kordinatX - 10, sehirBilgisi.kordinatY - 25);
+
                 }
+                textBox1.Text += " \t \n Toplam Mesafe: " + tumToplamMesafe[tempIndex].ToString();
 
-
-                ISehir sehirBilgisi = sehirManager.GetSehir(temp[i] + 1);
-
-                //listBox4.Items.Add(sehirBilgisi.sehirAdi);
-                //richTextBox2.Text += " - " + sehirBilgisi.sehirAdi;
-                textBox1.Text += "-> "+sehirBilgisi.sehirAdi;
-                haritadaCiz(OncekiSehirBilgisi.kordinatX, OncekiSehirBilgisi.kordinatY, sehirBilgisi.kordinatX, sehirBilgisi.kordinatY);
-                lDizi[i].Location = new Point(sehirBilgisi.kordinatX-10, sehirBilgisi.kordinatY - 25);
 
             }
+
+
+
+
+
+
+
+            
         }
     }
 }

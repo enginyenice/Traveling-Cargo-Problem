@@ -25,7 +25,7 @@ namespace ProLab_21.Manager
         {
             
             
-            ISehir iter = sehirManager.ilk;
+            DSehir iter = sehirManager.ilk;
             int main = 0;
             
             while(iter !=null)
