@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-public class GFG
+public class YolBulucu
 {
 
     public static readonly int NO_PARENT = -1;
@@ -13,7 +13,7 @@ public class GFG
     public List<Int32> tamYol = new List<int>();
     public bool kont= true;
 
-    public GFG()
+    public YolBulucu()
     {
         kenarlar.Clear();
         arananSehirMesafeleri.Clear();
@@ -44,12 +44,12 @@ public class GFG
         }
         else { 
         kenarlar.Clear();
-        dijkstra(komsulukMatrisi, baslangicKenari, bitisKenarlari[minMesafeIndis],status);
+                dijkstra(komsulukMatrisi, baslangicKenari, bitisKenarlari[minMesafeIndis], status);
         for (int i = 1; i < kenarlar.Count; i++)
         {
                 tamYol.Add(kenarlar[i]);
         }
-        Console.WriteLine("\nMin Mesafe " + minMesafe);
+        //Console.WriteLine("\nMin Mesafe " + minMesafe);
         toplamMinMesafe += minMesafe;
         baslangicKenari = bitisKenarlari[minMesafeIndis];
         bitisKenarlari.RemoveAt(minMesafeIndis);
@@ -65,10 +65,6 @@ public class GFG
 
     }
 
-    internal void topluDijikstra(object kMatris, int v, object arananListesiIndis, int status)
-    {
-        throw new NotImplementedException();
-    }
 
     public  void dijkstra(int[,] komsulukMatrisi,int baslangicKenari,int bitisKenari, int status)
     {
@@ -107,7 +103,8 @@ public class GFG
                 }
             }
 
-            eklenenler[enYakinKenar] = true;
+                eklenenler[enYakinKenar] = true;
+
 
             for (int sehirIndex = 0;
                     sehirIndex < nKenar;
@@ -141,11 +138,6 @@ public class GFG
         {
             if (sehirIndex != baslangicKenari && sehirIndex == bitisKenari)
             {
-                /*
-                Console.Write("\n" + baslangicKenari + " -> ");
-                Console.Write(bitisKenari + " \t\t ");
-                Console.Write(mesafeler[bitisKenari] + "\t\t");
-                */
                 arananSehirMesafeleri.Add(mesafeler[bitisKenari]);
                 cozumYolunuEkranaYaz(sehirIndex, parents);
             }
@@ -159,7 +151,6 @@ public class GFG
             return;
         }
         cozumYolunuEkranaYaz(parents[gecerliKenar], parents);
-       // Console.Write(gecerliKenar + " ");
         kenarlar.Add(gecerliKenar);
 
     }

@@ -55,29 +55,29 @@
     <Compile Include="Data\DDosya.cs" />
     <Compile Include="Data\DMatris.cs" />
     <Compile Include="Data\DSehir.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="gezgin-kargo-takip-problemi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="gezgin-kargo-takip-problemi.Designer.cs">
+      <DependentUpon>gezgin-kargo-takip-problemi.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form2.cs">
+    <Compile Include="yol-bilgileri.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <Compile Include="yol-bilgileri.Designer.cs">
+      <DependentUpon>yol-bilgileri.cs</DependentUpon>
     </Compile>
     <Compile Include="Manager\DosyaManager.cs" />
-    <Compile Include="Manager\GFG.cs" />
+    <Compile Include="Manager\YolBulucu.cs" />
     <Compile Include="Manager\KomsulukMatrisiManager.cs" />
     <Compile Include="Manager\SehirManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="gezgin-kargo-takip-problemi.resx">
+      <DependentUpon>gezgin-kargo-takip-problemi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form2.resx">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <EmbeddedResource Include="yol-bilgileri.resx">
+      <DependentUpon>yol-bilgileri.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
