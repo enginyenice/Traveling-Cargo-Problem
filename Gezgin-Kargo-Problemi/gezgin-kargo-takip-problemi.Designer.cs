@@ -34,8 +34,8 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.ıconButton2 = new FontAwesome.Sharp.IconButton();
-            this.ıconButton1 = new FontAwesome.Sharp.IconButton();
+            this.YolCizBtn = new System.Windows.Forms.Button();
+            this.YolBulBtn = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
@@ -107,8 +107,8 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
-            this.tabPage1.Controls.Add(this.ıconButton2);
-            this.tabPage1.Controls.Add(this.ıconButton1);
+            this.tabPage1.Controls.Add(this.YolCizBtn);
+            this.tabPage1.Controls.Add(this.YolBulBtn);
             this.tabPage1.Controls.Add(this.label4);
             this.tabPage1.Controls.Add(this.listBox1);
             this.tabPage1.Controls.Add(this.richTextBox2);
@@ -125,45 +125,31 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Şehir Listesi ve Yol Bul";
             // 
-            // ıconButton2
+            // YolCizBtn
             // 
-            this.ıconButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(123)))), ((int)(((byte)(157)))));
-            this.ıconButton2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ıconButton2.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.ıconButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.ıconButton2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
-            this.ıconButton2.IconChar = FontAwesome.Sharp.IconChar.Edit;
-            this.ıconButton2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
-            this.ıconButton2.IconSize = 30;
-            this.ıconButton2.Location = new System.Drawing.Point(200, 583);
-            this.ıconButton2.Name = "ıconButton2";
-            this.ıconButton2.Rotation = 0D;
-            this.ıconButton2.Size = new System.Drawing.Size(183, 62);
-            this.ıconButton2.TabIndex = 24;
-            this.ıconButton2.Text = "Yolu Ciz";
-            this.ıconButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.ıconButton2.UseVisualStyleBackColor = false;
-            this.ıconButton2.Click += new System.EventHandler(this.ıconButton2_Click);
+            this.YolCizBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(218)))), ((int)(((byte)(220)))));
+            this.YolCizBtn.Font = new System.Drawing.Font("Microsoft YaHei Light", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.YolCizBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(57)))), ((int)(((byte)(70)))));
+            this.YolCizBtn.Location = new System.Drawing.Point(200, 583);
+            this.YolCizBtn.Name = "YolCizBtn";
+            this.YolCizBtn.Size = new System.Drawing.Size(183, 64);
+            this.YolCizBtn.TabIndex = 24;
+            this.YolCizBtn.Text = "Yolu Ciz";
+            this.YolCizBtn.UseVisualStyleBackColor = false;
+            this.YolCizBtn.Click += new System.EventHandler(this.YolCizBtn_Click);
             // 
-            // ıconButton1
+            // YolBulBtn
             // 
-            this.ıconButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(123)))), ((int)(((byte)(157)))));
-            this.ıconButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ıconButton1.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.ıconButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.ıconButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
-            this.ıconButton1.IconChar = FontAwesome.Sharp.IconChar.Search;
-            this.ıconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
-            this.ıconButton1.IconSize = 30;
-            this.ıconButton1.Location = new System.Drawing.Point(11, 583);
-            this.ıconButton1.Name = "ıconButton1";
-            this.ıconButton1.Rotation = 0D;
-            this.ıconButton1.Size = new System.Drawing.Size(183, 63);
-            this.ıconButton1.TabIndex = 23;
-            this.ıconButton1.Text = "Yol Bul";
-            this.ıconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.ıconButton1.UseVisualStyleBackColor = false;
-            this.ıconButton1.Click += new System.EventHandler(this.ıconButton1_Click);
+            this.YolBulBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(218)))), ((int)(((byte)(220)))));
+            this.YolBulBtn.Font = new System.Drawing.Font("Microsoft YaHei Light", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.YolBulBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(57)))), ((int)(((byte)(70)))));
+            this.YolBulBtn.Location = new System.Drawing.Point(11, 583);
+            this.YolBulBtn.Name = "YolBulBtn";
+            this.YolBulBtn.Size = new System.Drawing.Size(183, 64);
+            this.YolBulBtn.TabIndex = 23;
+            this.YolBulBtn.Text = "Yol Bul";
+            this.YolBulBtn.UseVisualStyleBackColor = false;
+            this.YolBulBtn.Click += new System.EventHandler(this.YolBulBtn_Click);
             // 
             // label4
             // 
@@ -383,6 +369,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
             this.ClientSize = new System.Drawing.Size(1314, 681);
             this.Controls.Add(this.tabControl1);
@@ -419,8 +406,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.RichTextBox richTextBox2;
         private System.Windows.Forms.ListBox listBox1;
-        private FontAwesome.Sharp.IconButton ıconButton1;
-        private FontAwesome.Sharp.IconButton ıconButton2;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label9;
@@ -430,6 +415,8 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button YolCizBtn;
+        private System.Windows.Forms.Button YolBulBtn;
     }
 }
 
