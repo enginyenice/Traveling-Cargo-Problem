@@ -6,11 +6,14 @@
 				|	Proje - I			     |
 				|	Gezgin Kargo Problemi		     |
 				----------------------------------------------
+
+
+
 Nasıl Kullanılır?
-1-)  Programın Çalıştırılması:
-	Bunun için 2 yol bulunmaktadır.
-	I)  1_190201133.rar dosyası rardan çıkartılıp ardından Gezgin-Kargo-Problemi/bin/Debug/Gezgin-Kargo-Problemi.exe dosyasını çalıştırın. 
-	II) 1_calistirilabilirExe_190201133.rar  dosyası rardan çıkartılıp ardından Gezgin-Kargo-Problemi.exe dosyasını çalıştırın. 
+1-)  Programın Çalıştırılması İki Ayrı Yol:
+	I)  1_190201133.rar dosyası rardan çıkartılıp ve ardından Gezgin-Kargo-Problemi.sln projesi çalıştırılır. Build edilerek debug klasörüne exe oluşturulur.
+	###) Önemli NOT: Assets klasörü .exe ile aynı dizinde olmalıdır. (Şuan Assets klasörü debug klasörünün içerisindedir.)
+	II) 1_EXE_190201133.rar dosyası dışarıya çıkartılarak direk exe üzerinden çalıştırılabilir.
 2-)  Hangi şehirlere uğranması gerektiği seçilir.
 3-)  Yol Bul butonuna basılarak bu şehirlere gidilecek yollar bulunur.
 4-)  Seçilen Yol Listesi alanında gitmek için seçtiğiniz şehirler listelenir.
@@ -22,5 +25,4 @@ Nasıl Kullanılır?
 10-) Oluşturulan çıktılar programın bulunduğu dizinde Outputs klasörünün içerisinde yil-ay-gun-saat-dakika-saniye.txt 
 şeklinde oluşturulan klasör içerisinde kayıt edilir.
 
-Önemli NOT: Assets klasörü .exe ile aynı dizinde olmalıdır.
-Önemli NOT: Nasıl Kullanılır dosyasındaki adımları takip ederek de detaylı kullanımı öğrenebilirsiniz.
+
