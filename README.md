@@ -2,7 +2,7 @@
 ### Mühendislik Fakültesi
 ### Bilgisayar Mühendisliği Bölümü
 ### Programlama Laboratuvarı - II
-### Proje - II Gezgin Kargo Problemi
+### Proje - I Gezgin Kargo Problemi
 
 ----------------------------------------------
 Proje Detayları: [Proje Detayları (PDF)](https://github.com/nginY26/Gezgin-Kargo-Problemi/blob/master/D%C3%B6k%C3%BCmanlar/Proje.pdf "Proje Detayları (PDF)")
