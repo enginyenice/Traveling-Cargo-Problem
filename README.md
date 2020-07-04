@@ -5,22 +5,18 @@
 ### Proje - II Gezgin Kargo Problemi
 
 ----------------------------------------------
-Proje Detayları: [Proje Detayları (PDF)](https://github.com/nginY26/NETFLIX/blob/master/D%C3%B6k%C3%BCmanlar/Proje.pdf "Proje Detayları (PDF)")
+Proje Detayları: [Proje Detayları (PDF)](https://github.com/nginY26/Gezgin-Kargo-Problemi/blob/master/D%C3%B6k%C3%BCmanlar/Proje.pdf "Proje Detayları (PDF)")
 
 ------------
 
 
-Rapor Linki: [Teslim Raporu (PDF)](https://github.com/nginY26/NETFLIX/blob/master/D%C3%B6k%C3%BCmanlar/Rapor.pdf "Teslim Raporu (PDF)")
+Rapor Linki: [Teslim Raporu (PDF)](https://github.com/nginY26/Gezgin-Kargo-Problemi/blob/master/D%C3%B6k%C3%BCmanlar/Rapor.pdf "Teslim Raporu (PDF)")
 
 ------------
 
 
-Resimler Linki: [Proje Resimleri](https://github.com/nginY26/NETFLIX/tree/master/D%C3%B6k%C3%BCmanlar/Resimler "Proje Resimleri")
+Resimler Linki: [Proje Resimleri](https://github.com/nginY26/Gezgin-Kargo-Problemi/tree/master/D%C3%B6k%C3%BCmanlar/Resimler "Proje Resimleri")
 
-------------
-
-
-Database: [MS Access Database ](https://github.com/nginY26/NETFLIX/blob/master/NETFLIX/bin/Debug/Assets/netflix.db "MS Access Database ")
 
 ----------------------------------------------
 **Önemli NOT: Assets klasörü .exe ile aynı dizinde olmalıdır. (Şuan Assets klasörü debug klasörünün içerisindedir.)**
